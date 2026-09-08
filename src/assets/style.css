@@ -1,0 +1,497 @@
+/* =========================
+   GENERAL
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  color: #222;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+
+/* =========================
+   APP
+========================= */
+
+.app {
+  min-height: 100vh;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+  width: 100%;
+  height: 70px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 60px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+}
+
+.nav-links a:hover {
+  color: #6c63ff;
+}
+
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 50px auto;
+}
+
+.container h1 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #777;
+  margin-bottom: 40px;
+}
+
+
+/* =========================
+   BOOK GRID
+========================= */
+
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+
+/* =========================
+   BOOK CARD
+========================= */
+
+.book-card {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+.book-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.book-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+
+.book-info {
+  padding: 18px;
+}
+
+.book-info h2 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.author {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.category {
+  display: inline-block;
+  background: #eeeaff;
+  color: #5b52d6;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  margin-bottom: 15px;
+}
+
+.card-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+
+.card-bottom span:last-child {
+  font-size: 18px;
+}
+
+
+/* =========================
+   POPUP OVERLAY
+========================= */
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.65);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+
+  z-index: 1000;
+}
+
+
+/* =========================
+   BOOK POPUP
+========================= */
+
+.book-popup {
+  width: 900px;
+  max-width: 100%;
+
+  max-height: 90vh;
+  overflow-y: auto;
+
+  background: #ffffff;
+
+  border-radius: 18px;
+
+  padding: 30px;
+
+  position: relative;
+
+  display: flex;
+  gap: 35px;
+
+  animation: popupOpen 0.25s ease;
+}
+
+
+/* Popup animation */
+
+@keyframes popupOpen {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+/* =========================
+   CLOSE BUTTON
+========================= */
+
+.close-button {
+  position: absolute;
+
+  top: 15px;
+  right: 15px;
+
+  width: 38px;
+  height: 38px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #f1f1f1;
+
+  font-size: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: 0.2s;
+}
+
+.close-button:hover {
+  background: #222;
+  color: white;
+}
+
+
+/* =========================
+   POPUP IMAGE
+========================= */
+
+.popup-image {
+  width: 300px;
+  flex-shrink: 0;
+}
+
+.popup-image img {
+  width: 100%;
+  height: 430px;
+
+  object-fit: cover;
+
+  border-radius: 12px;
+}
+
+
+/* =========================
+   POPUP DETAILS
+========================= */
+
+.popup-details {
+  flex: 1;
+  padding-top: 10px;
+}
+
+.popup-details h2 {
+  font-size: 30px;
+  margin-bottom: 8px;
+  padding-right: 40px;
+}
+
+.popup-author {
+  color: #666;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.popup-category {
+  display: inline-block;
+
+  background: #eeeaff;
+  color: #5b52d6;
+
+  padding: 6px 12px;
+
+  border-radius: 20px;
+
+  font-size: 13px;
+
+  margin-bottom: 20px;
+}
+
+.popup-description {
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 25px;
+}
+
+
+/* =========================
+   BOOK INFO GRID
+========================= */
+
+.book-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.book-info-grid div {
+  background: #f7f7f7;
+
+  padding: 14px;
+
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+.book-info-grid strong {
+  font-size: 13px;
+  color: #555;
+}
+
+.book-info-grid span {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+
+/* =========================
+   BUY BUTTON
+========================= */
+
+.buy-button {
+  width: 100%;
+
+  margin-top: 25px;
+
+  padding: 14px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #6c63ff;
+
+  color: white;
+
+  font-size: 16px;
+
+  font-weight: bold;
+
+  transition: 0.3s;
+}
+
+.buy-button:hover {
+  background: #5148d8;
+}
+
+
+/* =========================
+   RESPONSIVE - TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+  .books-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .book-popup {
+    width: 750px;
+  }
+
+  .popup-image {
+    width: 250px;
+  }
+
+}
+
+
+/* =========================
+   RESPONSIVE - MOBILE
+========================= */
+
+@media (max-width: 650px) {
+
+  .navbar {
+    padding: 0 20px;
+  }
+
+  .nav-links {
+    gap: 12px;
+  }
+
+  .container {
+    width: 92%;
+    margin: 30px auto;
+  }
+
+  .container h1 {
+    font-size: 28px;
+  }
+
+  .books-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .book-card img {
+    height: 220px;
+  }
+
+  .book-info {
+    padding: 12px;
+  }
+
+  .book-info h2 {
+    font-size: 15px;
+  }
+
+  .book-popup {
+    flex-direction: column;
+
+    padding: 20px;
+
+    max-height: 90vh;
+  }
+
+  .popup-image {
+    width: 100%;
+  }
+
+  .popup-image img {
+    height: 300px;
+  }
+
+  .popup-details h2 {
+    font-size: 24px;
+  }
+
+  .book-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 400px) {
+
+  .books-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .book-card img {
+    height: 300px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+}
